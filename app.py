@@ -14,7 +14,7 @@ COOL_DOWN_SEC = 1
 shiny_addresses = restore_addresses()
 
 for p in range(START_PAGE_NUM, MAX_PAGE_NUM):
-    print(p)
+    print(f"page={p}")
     addresses = fetch_addresses(CURRENT_TIDE, p, PAGE_SIZE)
     unchecked_addresses = [a for a in addresses if a not in shiny_addresses]
     sleep(COOL_DOWN_SEC)
