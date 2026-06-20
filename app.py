@@ -5,9 +5,9 @@ from user import fetch_vedust_ids
 from vedust_batch import check_has_shiny
 from text_file import append_address, restore_addresses
 
-PAGE_SIZE = 100
+PAGE_SIZE = 20
 START_PAGE_NUM = 0
-MAX_PAGE_NUM = 10
+MAX_PAGE_NUM = 50
 CURRENT_TIDE = 6
 COOL_DOWN_SEC = 1
 

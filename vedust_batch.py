@@ -13,10 +13,13 @@ def check_has_shiny(ids: list[str]) -> bool:
     for c in chunks:
         json = {"tokenIds": c}
         print(f"POST {BASE_URL}, {json=}")
-        response = post(BASE_URL, json={"tokenIds": c})
-        assignments: dict[str, dict[str, Any]] = response.json()["assignments"]
-        results: list[bool] = [a["isShiny"] for a in assignments.values()]
-        if any(results):
-            return True
+        response = post(BASE_URL, json={"tokenIds": c}).json()
+        try:
+            assignments: dict[str, dict[str, Any]] = response["assignments"]
+            results: list[bool] = [a["isShiny"] for a in assignments.values()]
+            if any(results):
+                return True
+        except KeyError:
+            print(f"Invalid Response\n{response}")
 
     return False
