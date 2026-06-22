@@ -1,3 +1,4 @@
+# Deprecated
 from typing import Any
 
 from requests import post
